@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  .card {
+    background-color: #0f0f0f;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
+  h2 {
+    color: purple;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+  label {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+  }
+  input {
+    width: 100%;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    color: #a0a0a0;
+    font-size: 13px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  input:focus {
+    border: 1px solid purple;
+  }
+  button {
+    width: 100%;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  button:hover {
+    background-color:purple;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+    <h2> Creado por Rosa Maria </h2>
+  <h2>Formulario de Registro</h2>
+  <form id="formRegistro">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+    <label for="telefono">Número telefónico:</label>
+    <input type="tel" id="telefono" placeholder="10 números" pattern="[0-9]{10}" maxlength="10" required>
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" placeholder="ejemplo@correo.com" required>
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+<script>
+  document.getElementById('formRegistro').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value;
+    const telefono = document.getElementById('telefono').value;
+    if(telefono.length !== 10){
+      alert('El número debe tener 10 dígitos');
+      return;
+    }
+    alert('Registro enviado: ' + nombre);
+  });
+</script>
+</body>
+    </html>
